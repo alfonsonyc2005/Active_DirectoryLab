@@ -1,5 +1,5 @@
 # How to setup a Home Lab Running Active Directory with Powershell
-![Cloud Honeynet / SOC](https://i.imgur.com/9qNFLsZ.png)
+![Home Lab](https://github.com/alfonsonyc2005/Active_DirectoryLab/blob/main/ADtopology.jpg?raw=true)
 
 ## Introduction
 
