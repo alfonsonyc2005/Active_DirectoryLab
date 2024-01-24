@@ -12,7 +12,7 @@ I created a small active directory home lab using Oracle VirtualBox.  I used a P
 
 
 ## Architecture After Hardening / Security Controls
-![Architecture Diagram](https://imgur.com/cpUtr4y.jpg)
+![DC / PC ](https://github.com/alfonsonyc2005/Active_DirectoryLab/blob/main/VMManager.png?raw=true)
 
 The architecture of the mini honeynet in Azure consists of the following components:
 
