@@ -3,16 +3,13 @@
 
 ## Introduction
 
-In this undertaking, I constructed a compact honeynet within the Azure framework. I gathered log data from diverse sources and funneled it into a Log Analytics workspace. Subsequently, Microsoft Sentinel utilized this workspace to generate attack maps, initiate alerts, and formulate incidents. I assessed security metrics within the vulnerable environment over a 24-hour period, implemented security controls to fortify the environment, reevaluated metrics for an additional 24 hours, and present the outcomes below. The showcased metrics include:
+I created a small active directory home lab using Oracle VirtualBox.  I used a PowerShell script to auto create roughly 1000 users and created one VM as an end-user PC using a Windows 10 Pro ISO and added it to the domain.  The goal was to get hands on experience with an environment running active directory and the process of creating users from a text file and automating the process.  In addition, I wanted the Windows 10 PC to be able to reach the internet both ways and be able to resolve DNS queries internally and externally.  I used:
 
-- SecurityEvent (Windows Event Logs)
-- Syslog (Linux Event Logs)
-- SecurityAlert (Log Analytics Alerts Triggered)
-- SecurityIncident (Incidents created by Sentinel)
-- AzureNetworkAnalytics_CL (Malicious Flows allowed into our honeynet)
+- Oracle VirtualBox (VMWare Network)
+- Server 2019 ISO (domain controller)
+- Windows 10 Pro ISO (Client1 VM)
+- PowerShell script (creates 1000 users)
 
-## Architecture Before Hardening / Security Controls
-![Architecture Diagram](https://imgur.com/vZuNxfw.jpg)
 
 ## Architecture After Hardening / Security Controls
 ![Architecture Diagram](https://imgur.com/cpUtr4y.jpg)
