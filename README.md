@@ -12,6 +12,8 @@ I created a small active directory home lab using Oracle VirtualBox.  I used a P
 
 
 ## Creation of the domain controller and end-user PC
+
+
 ![DC](https://github.com/alfonsonyc2005/Active_DirectoryLab/blob/main/VMManager.png?raw=true)
 ![PC](https://github.com/alfonsonyc2005/Active_DirectoryLab/blob/main/Screen%20Shot%202024-01-24%20at%202.03.43%20PM.png?raw=true)
 
@@ -21,15 +23,19 @@ The client1 PC was created using the Windows 10 pro ISO.
 
 
 ## PowerShell script creating 1000 users in AD
+
+
 ![PowerShell creating users](https://github.com/alfonsonyc2005/Active_DirectoryLab/blob/main/PScreating.png?raw=true)<br>
 ![PowerShell running / updating AD](https://github.com/alfonsonyc2005/Active_DirectoryLab/blob/main/powershellrunnin.png?raw=true)<br>
-![Windows RDP/SMB Auth Failures](https://imgur.com/kPuWG6i.png)<br>
+![Users in AD / user's OU](https://github.com/alfonsonyc2005/Active_DirectoryLab/blob/main/UsersAD.png?raw=true)<br>
 
-## Metrics Before Hardening / Security Controls
+In the above images, you can see the PowerShell script running and adding users into the "_USERS" organizational unit (OU) from a "names.txt" file saved on my desktop.  As it creates all of the users, you can see it being added in the OU.
 
-The following table shows the metrics we measured in our insecure environment for 24 hours:
-Start Time 2024-01-14 3:15:56 PM
-Stop Time 2023-03-15 3:15:56 PM
+
+
+## User and PC showing they are in the correct OU in the "mydomain.com" domain.
+
+
 
 ![Screen Shot 2024-01-21 at 11 19 31 PM](https://github.com/alfonsonyc2005/Azure-SOC/assets/141835414/ac205dda-ee70-4cc3-90cd-46d1b35859a4)
 
