@@ -22,7 +22,7 @@ The client1 PC was created using the Windows 10 pro ISO.
 
 ## PowerShell script creating 1000 users in AD
 ![PowerShell creating users](https://github.com/alfonsonyc2005/Active_DirectoryLab/blob/main/PScreating.png?raw=true)<br>
-![Linux Syslog Auth Failures](https://imgur.com/SyLMQ8o.png)<br>
+![PowerShell running / updating AD](https://github.com/alfonsonyc2005/Active_DirectoryLab/blob/main/powershellrunnin.png?raw=true)<br>
 ![Windows RDP/SMB Auth Failures](https://imgur.com/kPuWG6i.png)<br>
 
 ## Metrics Before Hardening / Security Controls
