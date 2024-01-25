@@ -21,7 +21,7 @@ The client1 PC was created using the Windows 10 pro ISO.
 
 
 ## PowerShell script creating 1000 users in AD
-![NSG Allowed Inbound Malicious Flows](https://imgur.com/0S5lz3e.png)<br>
+![PowerShell creating users](https://github.com/alfonsonyc2005/Active_DirectoryLab/blob/main/PScreating.png?raw=true)<br>
 ![Linux Syslog Auth Failures](https://imgur.com/SyLMQ8o.png)<br>
 ![Windows RDP/SMB Auth Failures](https://imgur.com/kPuWG6i.png)<br>
 
