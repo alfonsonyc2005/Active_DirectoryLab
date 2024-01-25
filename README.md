@@ -37,7 +37,7 @@ In the above images, you can see the PowerShell script running and adding users 
 
 
 
-![Screen Shot 2024-01-21 at 11 19 31 PM](https://github.com/alfonsonyc2005/Azure-SOC/assets/141835414/ac205dda-ee70-4cc3-90cd-46d1b35859a4)
+![user in domain](https://github.com/alfonsonyc2005/Active_DirectoryLab/blob/main/userDomain.png?raw=true)
 
 ## Attack Maps Before Hardening / Security Controls
 
