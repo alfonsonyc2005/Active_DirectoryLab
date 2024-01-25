@@ -11,24 +11,16 @@ I created a small active directory home lab using Oracle VirtualBox.  I used a P
 - PowerShell script (creates 1000 users)
 
 
-## Architecture After Hardening / Security Controls
-![DC / PC ](https://github.com/alfonsonyc2005/Active_DirectoryLab/blob/main/VMManager.png?raw=true)
+## Creation of the domain controller and end-user PC
+![DC](https://github.com/alfonsonyc2005/Active_DirectoryLab/blob/main/VMManager.png?raw=true)
+![PC](https://github.com/alfonsonyc2005/Active_DirectoryLab/blob/main/Screen%20Shot%202024-01-24%20at%202.03.43%20PM.png?raw=true)
 
-The architecture of the mini honeynet in Azure consists of the following components:
+First, I created the domain controller using Windows Server 2019 and added 2 NIC cards (1 external / 1 internal).  External NIC gets its IP automatically via my home routers DHCP. I then hard-coded the internal NIC with a private IP 172.16.0.1.  I used 1 scope of an IP address block 172.16.0.100-200.  While in the DC, I enabled Remote Access Service (RAS) and Network Address Translation (NAT) and DHCP.  This will allow the internal PC to get an IP assigned automatically and get its default gateway and DNS settings automatically.  
 
-- Virtual Network (VNet)
-- Network Security Group (NSG)
-- Virtual Machines (1 window, 1 linux, 1 SQL Database)
-- Log Analytics Workspace
-- Azure Key Vault
-- Azure Storage Account
-- Microsoft Sentinel
+The client1 PC was created using the Windows 10 pro ISO.
 
-For the "BEFORE" metrics, all resources were originally deployed, exposed to the internet. The Virtual Machines had both their Network Security Groups and built-in firewalls wide open, and all other resources are deployed with public endpoints visible to the Internet; aka, no use for Private Endpoints.
 
-For the "AFTER" metrics, Network Security Groups were hardened by blocking ALL traffic with the exception of my admin workstation, and all other resources were protected by their built-in firewalls as well as Private Endpoint
-
-## Attack Maps Before Hardening / Security Controls
+## PowerShell script creating 1000 users in AD
 ![NSG Allowed Inbound Malicious Flows](https://imgur.com/0S5lz3e.png)<br>
 ![Linux Syslog Auth Failures](https://imgur.com/SyLMQ8o.png)<br>
 ![Windows RDP/SMB Auth Failures](https://imgur.com/kPuWG6i.png)<br>
