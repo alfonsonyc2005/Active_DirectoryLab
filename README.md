@@ -3,12 +3,15 @@
 
 ## Introduction
 
-I created a small active directory home lab using Oracle VirtualBox.  I used a PowerShell script to auto create roughly 1000 users and created one VM as an end-user PC using a Windows 10 Pro ISO and added it to the domain.  The goal was to get hands on experience with an environment running active directory and the process of creating users from a text file and automating the process.  In addition, I wanted the Windows 10 PC to be able to reach the internet both ways and be able to resolve DNS queries internally and externally.  I used:
+I created a small active directory home lab using Oracle VirtualBox.  The goal was to get hands on experience with an environment running active directory.  I used a PowerShell script to automatically create roughly 1000 users from a names.txt file. In addition, I created one Virtual machine (VM) as an end-user PC using a Windows 10 Pro ISO with internet access.  
+
+I used:
 
 - Oracle VirtualBox (VMWare Network)
 - Server 2019 ISO (domain controller)
 - Windows 10 Pro ISO (Client1 VM)
 - PowerShell script (creates 1000 users)
+- names.txt file (list of users)
 
 
 ## Creation of the domain controller and end-user PC
@@ -17,7 +20,7 @@ I created a small active directory home lab using Oracle VirtualBox.  I used a P
 ![DC](https://github.com/alfonsonyc2005/Active_DirectoryLab/blob/main/VMManager.png?raw=true)
 ![PC](https://github.com/alfonsonyc2005/Active_DirectoryLab/blob/main/Screen%20Shot%202024-01-24%20at%202.03.43%20PM.png?raw=true)
 
-First, I created the domain controller using Windows Server 2019 and added 2 NIC cards (1 external / 1 internal).  External NIC gets its IP automatically via my home routers DHCP. I then hard-coded the internal NIC with a private IP 172.16.0.1.  I used 1 scope of an IP address block 172.16.0.100-200.  While in the DC, I enabled Remote Access Service (RAS) and Network Address Translation (NAT) and DHCP.  This will allow the internal PC to get an IP assigned automatically and get its default gateway and DNS settings automatically.  
+First, I created the domain controller using Windows Server 2019 and added 2 NIC cards (1 external / 1 internal).  External NIC gets its IP automatically via my home routers DHCP. I then hard-coded the internal NIC with a private IP 172.16.0.1.  I used 1 scope of an IP address block 172.16.0.100-200.  While in the DC, I enabled Remote Access Service (RAS) and Network Address Translation (NAT) and DHCP.  This will allow the internal PC to get an IP, default gateway, and DNS settings automatically.  
 
 The client1 PC was created using the Windows 10 pro ISO.
 
@@ -38,21 +41,13 @@ In the above images, you can see the PowerShell script running and adding users 
 
 
 ![user in domain](https://github.com/alfonsonyc2005/Active_DirectoryLab/blob/main/userDomain.png?raw=true)
+![pc in the computer OU](https://github.com/alfonsonyc2005/Active_DirectoryLab/blob/main/PCinDomain.png?raw=true)
 
-## Attack Maps Before Hardening / Security Controls
+Here you can see I logged into the windows PC and ran "whoami" which confirms I am in the "mydomain" domain.  You can also see the windows PC in the correct "Computers" OU in AD.
 
-```All map queries actually returned no results due to no instances of malicious activity for the 24 hour period after hardening.```
 
-## Metrics After Hardening / Security Controls
 
-The following table shows the metrics we measured in our environment for another 24 hours, but after we have applied security controls:
-Start Time 2024-01-18 10:17:06 PM
-Stop Time	2024-01-19 10:17:06 PM
 
-![Screen Shot 2024-01-21 at 11 20 24 PM](https://github.com/alfonsonyc2005/Azure-SOC/assets/141835414/3a4f9caa-2bb9-4119-8cee-f902a406a63a)
+## Summary
 
-## Conclusion
-
-In this project, a miniature honeynet was established within Microsoft Azure, and various log sources were seamlessly integrated into a Log Analytics workspace. The deployment of Microsoft Sentinel played a crucial role in initiating alerts and generating incidents based on the assimilated logs. Furthermore, metrics were assessed in the insecure environment both before the implementation of security controls and after their application. It is noteworthy that the implementation of security measures resulted in a significant reduction in the number of security events and incidents, highlighting the efficacy of these controls.
-
-Importantly, if the network resources had been extensively utilized by regular users, it is plausible that a higher volume of security events and alerts might have been produced in the 24-hour period following the implementation of the security controls.
+With this particular project, I was able to set-up a decent live home lab environment running active directory.  The environment has remote access, able to resolve Fully Qualified Domain Name (FQDN) using the DNS service enabled on the DC and have internet connectivity.  Internal "Client1" PC was able to get its configurations (default gateway, DNS, and IP address from the DHCP server running inside of the domain controller (DC) as well.  The PowerShell script gave me first-hand experience in how one can automate adding a batch of users automatically into AD, including having their logins/passwords created.
