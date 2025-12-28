@@ -1,53 +1,97 @@
-# How to setup a Home Lab Running Active Directory with Powershell
-![Home Lab](https://github.com/alfonsonyc2005/Active_DirectoryLab/blob/main/ADtopology.jpg?raw=true)
+# Active Directory Home Lab with PowerShell Automation
 
-## Introduction
+## Overview
+This project demonstrates the setup of a **local Active Directory (AD) lab environment** and the use of **PowerShell automation** to manage identity objects at scale.
 
-I created a small active directory home lab using Oracle VirtualBox.  The goal was to get hands on experience with an environment running active directory.  I used a PowerShell script to automatically create roughly 1000 users from a names.txt file. In addition, I created one Virtual machine (VM) as an end-user PC using a Windows 10 Pro ISO with internet access.  
+The lab simulates a small enterprise domain by deploying a domain controller, a domain-joined client machine, and automating the creation of approximately **1,000 user accounts** using PowerShell.
 
-I used:
+---
 
-- Oracle VirtualBox (VMWare Network)
-- Server 2019 ISO (domain controller)
-- Windows 10 Pro ISO (Client1 VM)
-- PowerShell script (creates 1000 users)
-- names.txt file (list of users)
+## Architecture
+![Active Directory Lab Topology](https://github.com/alfonsonyc2005/Active_DirectoryLab/blob/main/ADtopology.jpg?raw=true)
 
+---
 
-## Creation of the domain controller and end-user PC
+## Technologies Used
+- Windows Server 2019 (Active Directory Domain Services)
+- Windows 10 Pro (Domain-joined client)
+- Oracle VirtualBox
+- PowerShell
+- Active Directory Users and Computers (ADUC)
 
+---
 
-![DC](https://github.com/alfonsonyc2005/Active_DirectoryLab/blob/main/VMManager.png?raw=true)
-![PC](https://github.com/alfonsonyc2005/Active_DirectoryLab/blob/main/Screen%20Shot%202024-01-24%20at%202.03.43%20PM.png?raw=true)
+## Active Directory Environment
+### Domain Controller and Client Setup
 
-First, I created the domain controller using Windows Server 2019 and added 2 NIC cards (1 external / 1 internal).  External NIC gets its IP automatically via my home routers DHCP. I then hard-coded the internal NIC with a private IP 172.16.0.1.  I used 1 scope of an IP address block 172.16.0.100-200.  While in the DC, I enabled Remote Access Service (RAS) and Network Address Translation (NAT) and DHCP.  This will allow the internal PC to get an IP, default gateway, and DNS settings automatically.  
+- Deployed a Windows Server 2019 domain controller
+- Configured Active Directory Domain Services (AD DS)
+- Enabled DNS and DHCP services for domain clients
+- Joined a Windows 10 client machine to the domain
 
-The client1 PC was created using the Windows 10 pro ISO.
+**Outcome:** Established a functional enterprise-style Active Directory environment capable of managing users and devices.
 
+<details>
+<summary><strong>Implementation details</strong></summary>
 
-## PowerShell script creating 1000 users in AD
+- Configured separate internal and external network interfaces
+- Enabled NAT and DHCP to support internal client connectivity
+- Verified domain join and DNS name resolution
+- Confirmed client authentication against the domain controller
 
+</details>
 
-![PowerShell creating users](https://github.com/alfonsonyc2005/Active_DirectoryLab/blob/main/PScreating.png?raw=true)<br>
-![PowerShell running / updating AD](https://github.com/alfonsonyc2005/Active_DirectoryLab/blob/main/powershellrunnin.png?raw=true)<br>
-![Users in AD / user's OU](https://github.com/alfonsonyc2005/Active_DirectoryLab/blob/main/UsersAD.png?raw=true)<br>
+---
 
-In the above images, you can see the PowerShell script running and adding users into the "_USERS" organizational unit (OU) from a "names.txt" file saved on my desktop.  As it creates all of the users, you can see it being added in the OU.
+## Identity Automation with PowerShell
+### Bulk User Creation
 
+- Developed a PowerShell script to automate user creation
+- Imported usernames from a `names.txt` file
+- Created approximately 1,000 users in a dedicated Organizational Unit (OU)
+- Automatically assigned account attributes and credentials
 
+**Outcome:** Demonstrated scalable identity lifecycle management using scripting and automation.
 
-## User and PC showing they are in the correct OU in the "mydomain.com" domain.
+![PowerShell User Creation](https://github.com/alfonsonyc2005/Active_DirectoryLab/blob/main/PScreating.png?raw=true)
 
+<details>
+<summary><strong>Implementation details</strong></summary>
 
+- Parsed user data from a text file
+- Used Active Directory PowerShell modules
+- Programmatically created users in a custom `_USERS` OU
+- Verified user creation via ADUC
 
-![user in domain](https://github.com/alfonsonyc2005/Active_DirectoryLab/blob/main/userDomain.png?raw=true)
-![pc in the computer OU](https://github.com/alfonsonyc2005/Active_DirectoryLab/blob/main/PCinDomain.png?raw=true)
+</details>
 
-Here you can see I logged into the windows PC and ran "whoami" which confirms I am in the "mydomain" domain.  You can also see the windows PC in the correct "Computers" OU in AD.
+---
 
+## Domain Validation
+### User and Device Verification
 
+- Logged into the domain-joined client using a domain user account
+- Verified domain membership using `whoami`
+- Confirmed correct OU placement for both users and computers
 
+**Outcome:** Validated proper authentication, authorization, and directory structure.
+
+![User in Domain](https://github.com/alfonsonyc2005/Active_DirectoryLab/blob/main/userDomain.png?raw=true)
+![PC in Computers OU](https://github.com/alfonsonyc2005/Active_DirectoryLab/blob/main/PCinDomain.png?raw=true)
+
+---
+
+## What This Project Demonstrates
+- Active Directory fundamentals
+- Organizational Unit (OU) design
+- User and device lifecycle management
+- PowerShell automation for identity operations
+- Foundational skills used in IAM, SOC, and enterprise IT roles
+
+---
 
 ## Summary
+This project provided hands-on experience with **Active Directory administration and automation**, reinforcing core identity concepts such as user provisioning, domain authentication, and directory organization.
 
-With this particular project, I was able to set-up a decent live home lab environment running active directory.  The environment has remote access, able to resolve Fully Qualified Domain Name (FQDN) using the DNS service enabled on the DC and have internet connectivity.  Internal "Client1" PC was able to get its configurations (default gateway, DNS, and IP address from the DHCP server running inside of the domain controller (DC) as well.  The PowerShell script gave me first-hand experience in how one can automate adding a batch of users automatically into AD, including having their logins/passwords created.
+By automating bulk user creation with PowerShell, the lab mirrors real-world scenarios where efficiency, consistency, and scalability are critical to identity management operations.
+
