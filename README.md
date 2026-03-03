@@ -8,7 +8,7 @@ The lab simulates a small enterprise domain by deploying a domain controller, a 
 ---
 
 ## Architecture
-![Active Directory Lab Topology](https://github.com/alfonsonyc2005/Active_DirectoryLab/blob/main/ADtopology.jpg?raw=true)
+![Active Directory Lab Topology](images/ad-topology.jpg)
 
 ---
 
@@ -53,7 +53,7 @@ The lab simulates a small enterprise domain by deploying a domain controller, a 
 
 **Outcome:** Demonstrated scalable identity lifecycle management using scripting and automation.
 
-![PowerShell User Creation](https://github.com/alfonsonyc2005/Active_DirectoryLab/blob/main/PScreating.png?raw=true)
+![PowerShell User Creation](images/powershell-user-creation.png)
 
 <details>
 <summary><strong>Implementation details</strong></summary>
@@ -76,8 +76,8 @@ The lab simulates a small enterprise domain by deploying a domain controller, a 
 
 **Outcome:** Validated proper authentication, authorization, and directory structure.
 
-![User in Domain](https://github.com/alfonsonyc2005/Active_DirectoryLab/blob/main/userDomain.png?raw=true)
-![PC in Computers OU](https://github.com/alfonsonyc2005/Active_DirectoryLab/blob/main/PCinDomain.png?raw=true)
+![User in Domain](images/user-domain.png)
+![PC in Computers OU](images/pc-in-domain.png)
 
 ---
 
