@@ -53,7 +53,7 @@ The lab simulates a small enterprise domain by deploying a domain controller, a 
 
 **Outcome:** Demonstrated scalable identity lifecycle management using scripting and automation.
 
-![PowerShell User Creation](images/powershell-user-creation.png)
+![PowerShell User Creation](images/PScreating.png)
 
 <details>
 <summary><strong>Implementation details</strong></summary>
