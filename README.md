@@ -8,7 +8,7 @@ The lab simulates a small enterprise domain by deploying a domain controller, a 
 ---
 
 ## Architecture
-![Active Directory Lab Topology](images/ad-topology.jpg)
+![Active Directory Lab Topology](images/ADtopology.jpg)
 
 ---
 
