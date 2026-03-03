@@ -76,8 +76,8 @@ The lab simulates a small enterprise domain by deploying a domain controller, a 
 
 **Outcome:** Validated proper authentication, authorization, and directory structure.
 
-![User in Domain](images/user-domain.png)
-![PC in Computers OU](images/pc-in-domain.png)
+![User in Domain](images/userDomain.png)
+![PC in Computers OU](PCinDomain.png)
 
 ---
 
